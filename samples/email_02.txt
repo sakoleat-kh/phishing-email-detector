@@ -1,0 +1,21 @@
+From: security@acme-support.example
+To: user@example.com
+Subject: Urgent: Your Password will Expire
+
+Hello,
+
+We noticed unusual activity on your account.
+
+Your password will expire today. Please reset it immediately to avoid losing access to your account.
+
+Reset your password here:
+
+https://accounts.acme.example/reset
+
+HTML Link:
+<a href="https://acme-verify.example/login">
+https://accounts.acme.example/reset
+</a>
+
+Thank you,
+ACME Account Security Team

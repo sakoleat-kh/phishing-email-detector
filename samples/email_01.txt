@@ -1,0 +1,18 @@
+From: security@acme.example
+To: user@example.com
+Subject: Password Reset Request
+
+Hello,
+
+We received a request to reset your password.
+
+To reset your password, visit:
+https://accounts.acme.example/reset
+
+HTML Link:
+<a href="https://accounts.acme.example/reset">
+https://accounts.acme.example/reset
+</a>
+
+Thank you,
+ACME Security Team
