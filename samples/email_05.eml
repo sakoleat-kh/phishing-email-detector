@@ -1,0 +1,12 @@
+From: IT Team <it@company.example>
+To: user@example.com
+Subject: System Maintenance
+MIME_Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Hello,
+
+Our system will undergo scheduled maintenance.
+
+Regards,
+IT Team

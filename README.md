@@ -24,6 +24,11 @@ The initial version focuses on identifying URL mismatches, where the URL display
 - Detect potential sender and reply destination mismatches.
 - Handle missing and invalid email addresses.
 - Include automated tests using pytest.
+- Parse real .eml email messages using Python's email module.
+- Extract sender and Reply-To headers.
+- Extract display names and email addresses.
+- Handle missing Reply-To headers.
+- Include automated email parser tests using pytest.
 
 ## Project Structure
 
@@ -33,8 +38,16 @@ phishing-email-detector/
 │   ├── email_01.txt
 │   ├── email_02.txt
 │   └── email_03.txt
-├── .gitignore
+├── samples/
+│   ├── email_04.eml
+│   └── email_05.eml
+├── tests/
+│   ├── test_detection.py
+│   └── test_email_parser.py
+├── detection.py
+├── email_parser.py
 ├── main.py
+├── .gitignore
 └── README.md
 ```
 
