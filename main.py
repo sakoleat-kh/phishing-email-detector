@@ -1,3 +1,4 @@
+from detection import check_reply_to_mismatch
 
 from pathlib import Path
 from urllib.parse import urlparse
@@ -23,6 +24,7 @@ def analyze_email(file_path):
     subject = None
     actual_url = None
     displayed_url = None
+    reply_to = None
 
     # Extract sender and subject
     for line in lines:
@@ -31,6 +33,9 @@ def analyze_email(file_path):
 
         if line.startswith("Subject:"):
             subject = line.split(":", 1)[1].strip()
+        
+        if line.startswith("Reply-To:"):
+            reply_to = line.split(":", 1)[1].strip()
 
     # Extract actual destination and displayed URL
     for index, line in enumerate(lines):
@@ -50,6 +55,22 @@ def analyze_email(file_path):
     # Display extracted information
     print(f"Sender: {sender}")
     print(f"Subject: {subject}")
+    print(f"Reply-To: {reply_to}")
+
+    # Compare sender and Reply-To domains
+    if sender and reply_to:
+        sender_domain = sender.split("@")[-1].lower()
+        reply_domain = reply_to.split("@")[-1].lower()
+
+        print("\nFrom domain:", sender_domain)
+        print("Reply-To domain:", reply_domain)
+
+        if sender_domain != reply_domain:
+            print("\n[WARNING] From and Reply-To domains do not match!")
+        else:
+            print("\nNo From/Reply-To domain mismatch detected.")
+    else:
+        print("\n[INFO] From or Reply-To header is missing.")
 
     print(f"\nActual destination: {actual_url}")
     print(f"Displayed URL: {displayed_url}")

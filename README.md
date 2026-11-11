@@ -19,6 +19,11 @@ The initial version focuses on identifying URL mismatches, where the URL display
 - Detect potential URL mismatches.
 - Process multiple email samples automatically.
 - Handle emails with missing URLs without crashing.
+- Extract Reply-To email headers.
+- Compare From and Reply-To domains.
+- Detect potential sender and reply destination mismatches.
+- Handle missing and invalid email addresses.
+- Include automated tests using pytest.
 
 ## Project Structure
 
