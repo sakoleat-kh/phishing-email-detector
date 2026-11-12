@@ -1,0 +1,32 @@
+From: security@company.example
+To: user@example.com
+Subject: Urgent Account Verification
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="email-boundary"
+
+--email-boundary
+Content-Type: text/plain; charset="utf-8"
+
+Hello,
+
+Your account requires verification.
+
+Visit https://company.example/verify to continue.
+
+Regards,
+Security Team
+
+--email-boundary
+Content-Type: text/html; charset="utf-8"
+
+<html>
+<body>
+    <h2>Account Verification</h2>
+    <p>Your account requires verification.</p>
+    <a href="https://fake-example.com/login">
+        Verify your account
+    </a>
+</body>
+</html>
+
+--email-boundary

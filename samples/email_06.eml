@@ -1,0 +1,14 @@
+From: security@company.example
+To: user@example.com
+Subject: Security Notification
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Hello,
+
+We detected a new login to your account.
+
+If this was not you, please contact our security team.
+
+Regards,
+Security Team
