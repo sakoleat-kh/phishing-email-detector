@@ -4,6 +4,9 @@ from email.parser import BytesParser
 from email.utils import parseaddr
 
 from html_analyzer import extract_links
+from url_analyzer import compare_hostnames
+
+from html_analyzer import extract_links
 from detection import check_reply_to_mismatch
 
 
@@ -88,9 +91,42 @@ def analyze_eml(email_path):
         print("\n[INFO] Cannot compare email addresses.")
 
 
+def analyze_html_links(email_path):
+    """Extract and compare visible and actual link destinations."""
+
+    bodies = extract_email_bodies(email_path)
+    links = extract_links(bodies["html"] or "")
+
+    print("\nHTML Link Security Analysis")
+    print("=" * 40)
+
+    for link in links:
+        visible_text = link["text"]
+        actual_url = link["url"]
+
+        result = compare_hostnames(visible_text, actual_url)
+
+        print("Displayed text:", visible_text)
+        print("Actual URL:", actual_url)
+
+        if result is True:
+            print("Result: Hostnames match")
+
+        elif result is False:
+            print("Result: Hostname mismatch [WARNING]")
+
+        else:
+            print("Result: Cannot compare visible text with destination")
+
+        print("-" * 40)
+
+
+
 if __name__ == "__main__":
     analyze_eml("samples/email_04.eml")
     analyze_eml("samples/email_05.eml")
+    analyze_html_links("samples/email_07.eml")
+    analyze_html_links("samples/email_08.eml")
 
     print("\n--- Email 06 Body ---")
     bodies = extract_email_bodies("samples/email_06.eml")

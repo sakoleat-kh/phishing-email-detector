@@ -1,0 +1,18 @@
+From: security@company.example
+To: user@example.com
+Subject: Password Reset
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+<html>
+<body>
+    <h2>Password Reset</h2>
+
+    <p>Your password needs to be reset.</p>
+
+    <a href="https://attacker.example/login">
+        https://company.example/reset
+    </a>
+
+</body>
+</html>
